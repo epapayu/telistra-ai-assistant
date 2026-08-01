@@ -1,0 +1,67 @@
+# ==========================================================================
+# TELISTRA AI ASSISTANT — GITIGNORE
+# ==========================================================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Sensitive Configuration & Secrets (API keys, Service Account JSONs, etc.)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+*.key
+*.pem
+*.cert
+*.crt
+credentials.json
+service-account*.json
+client_secret*.json
+gcp-key*.json
+secrets.*
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.tmp
+
+# Logs & Debugging
+logs/
+*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build & Runtime Cache
+dist/
+build/
+coverage/
+.nyc_output/
+tmp/
+temp/
+.cache/
+
+# Gemini / Agent Workspaces
+.gemini/
+.agents/

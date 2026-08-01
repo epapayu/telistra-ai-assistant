@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   TELISTRA - DESIGN SYSTEM & BRAND STYLES (COPYING TELSTRA.COM.AU)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap');
+
+:root {
+  /* Telistra Brand Colors */
+  --brand-primary: #0064D2;
+  --brand-hover: #0046BA;
+  --brand-deep: #002050;
+  --brand-light: #EBF3FC;
+  --brand-gradient: linear-gradient(135deg, #002050 0%, #0064D2 100%);
+  --hero-gradient: linear-gradient(125deg, #001838 0%, #002D6B 50%, #004EAB 100%);
+  
+  /* Accent Colors */
+  --accent-orange: #FF6B00;
+  --accent-teal: #00BFA5;
+  --accent-green: #10B981;
+  
+  /* Neutral Colors */
+  --bg-page: #F4F6F9;
+  --bg-card: #FFFFFF;
+  --bg-dark-section: #0B1626;
+  --text-main: #1A1D20;
+  --text-muted: #5C6670;
+  --border-color: #E2E8F0;
+  
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 32, 80, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 32, 80, 0.18);
+  --shadow-glow: 0 0 25px rgba(0, 100, 210, 0.35);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Transitions */
+  --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================================
+   TOP UTILITY BAR
+   ========================================================================== */
+.utility-bar {
+  background-color: var(--brand-deep);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.utility-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.utility-links {
+  display: flex;
+  gap: 24px;
+}
+
+.utility-links a {
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.utility-links a:hover,
+.utility-links a.active {
+  opacity: 1;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.utility-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ==========================================================================
+   MAIN HEADER / NAVBAR
+   ========================================================================== */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.main-header.scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(0, 100, 210, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-item {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--brand-primary);
+  transition: var(--transition-smooth);
+}
+
+.nav-item:hover {
+  color: var(--brand-primary);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-search {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.btn-search:hover {
+  background-color: var(--brand-light);
+  color: var(--brand-primary);
+}
+
+.btn-my-telistra {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 100, 210, 0.25);
+  transition: var(--transition-smooth);
+}
+
+.btn-my-telistra:hover {
+  background-color: var(--brand-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 100, 210, 0.35);
+  color: #FFFFFF;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   HERO BANNER SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: var(--hero-gradient);
+  color: #FFFFFF;
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+
+.hero-bg-waves {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 60%;
+  height: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 107, 0, 0.15);
+  border: 1px solid rgba(255, 107, 0, 0.5);
+  color: var(--accent-orange);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.hero-content h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-primary-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FFFFFF;
+  color: var(--brand-primary);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary-lg:hover {
+  background-color: var(--brand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  color: var(--brand-hover);
+}
+
+.btn-secondary-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  backdrop-filter: blur(8px);
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary-lg:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Hero Featured Deal Card */
+.hero-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 32px;
+  color: var(--text-main);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+  transition: var(--transition-smooth);
+}
+
+.hero-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.card-tag {
+  background: var(--brand-light);
+  color: var(--brand-primary);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.hero-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+  color: var(--brand-deep);
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+  margin: 20px 0;
+}
+
+.price-currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.price-amount {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.card-features-list {
+  margin: 20px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.card-features-list svg {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   INTERACTIVE PLAN COMPARISON SELECTOR SECTION
+   ========================================================================== */
+.plan-selector-section {
+  padding: 80px 0;
+  background-color: var(--bg-page);
+  position: relative;
+  z-index: 10;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.section-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--brand-deep);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+/* Interactive Tabs */
+.plan-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.plan-tab-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+}
+
+.plan-tab-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.plan-tab-btn.active {
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 14px rgba(0, 100, 210, 0.3);
+}
+
+/* Interactive Plan Grid */
+.plan-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+.plan-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-primary);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--brand-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.plan-card.featured::before {
+  content: "MOST POPULAR";
+  position: absolute;
+  top: 18px;
+  right: -32px;
+  background: var(--brand-primary);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.plan-card-header h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  color: var(--brand-deep);
+  margin-bottom: 6px;
+}
+
+.plan-data-badge {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin: 16px 0;
+}
+
+.plan-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.plan-price span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.plan-features {
+  margin: 28px 0;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.btn-select-plan {
+  width: 100%;
+  padding: 14px;
+  border-radius: 50px;
+  border: 2px solid var(--brand-primary);
+  background: transparent;
+  color: var(--brand-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-select-plan:hover,
+.plan-card.featured .btn-select-plan {
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 100, 210, 0.25);
+}
+
+/* ==========================================================================
+   AI ASSISTANT SHOWCASE BANNER (HIGHLIGHTING CES WIDGET)
+   ========================================================================== */
+.ai-showcase-banner {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+.ai-banner-card {
+  background: var(--brand-gradient);
+  border-radius: 28px;
+  padding: 48px 56px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-banner-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 191, 165, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.ai-banner-text h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.ai-banner-text p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+}
+
+.btn-ai-launch {
+  background-color: var(--accent-teal);
+  color: var(--brand-deep);
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 25px rgba(0, 191, 165, 0.4);
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.btn-ai-launch:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 191, 165, 0.55);
+  background-color: #1AE0C5;
+}
+
+/* ==========================================================================
+   WHY TELISTRA FEATURES GRID
+   ========================================================================== */
+.features-section {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.feature-item {
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-primary);
+  background: #FFFFFF;
+}
+
+.feature-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--brand-light);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feature-item h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: var(--brand-deep);
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   INTERACTIVE FAQ ACCORDION SECTION
+   ========================================================================== */
+.faq-section {
+  padding: 80px 0;
+  background-color: var(--bg-page);
+}
+
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.faq-item.open {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand-deep);
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-toggle-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  color: var(--brand-primary);
+}
+
+.faq-item.open .faq-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  padding: 0 28px;
+  color: var(--text-muted);
+}
+
+.faq-item.open .faq-answer {
+  padding: 0 28px 24px;
+  max-height: 240px;
+}
+
+/* ==========================================================================
+   TELISTRA FOOTER (COPYING TELSTRA.COM.AU FOOTER LAYOUT)
+   ========================================================================== */
+.main-footer {
+  background-color: var(--bg-dark-section);
+  color: #FFFFFF;
+  padding: 72px 0 32px;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.footer-brand h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand p {
+  color: #94A3B8;
+  max-width: 300px;
+  margin-bottom: 24px;
+}
+
+.footer-column h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+
+.footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column a {
+  color: #94A3B8;
+}
+
+.footer-column a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.acknowledgement-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--brand-primary);
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  color: #CBD5E1;
+  font-size: 0.85rem;
+}
+
+.copyright-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748B;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   GEMINI ENTERPRISE CES WIDGET STYLING & DYNAMIC RESPONSIVE BREAKPOINTS
+   (CRITICAL REQUIREMENT: ADJUST WIDGET SIZING DYNAMICALLY & BOTTOM-RIGHT COLLAPSIBLE)
+   ========================================================================== */
+
+/* ==========================================================================
+   FLOATING AI LAUNCHER BUBBLE & WIDGET EXPAND/COLLAPSE ANIMATIONS
+   ========================================================================== */
+.ai-launcher-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  cursor: pointer;
+  z-index: 99990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 100, 210, 0.45);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ai-launcher-bubble:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 100, 210, 0.65);
+  border-color: #FFFFFF;
+}
+
+.ai-launcher-bubble.bubble-hidden {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+.bubble-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble-sparkle {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  font-size: 0.85rem;
+  animation: sparkle-pulse 2s infinite;
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+.bubble-tooltip {
+  position: absolute;
+  right: 76px;
+  background: var(--brand-deep);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.ai-launcher-bubble:hover .bubble-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ensure the web component wrapper stays fixed in the bottom right */
+chat-messenger {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 99999 !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Sizing and entrance animation applied ONLY when expanded (.widget-expanded) */
+chat-messenger.widget-expanded {
+  width: 400px !important;
+  max-height: 620px !important;
+  height: 80vh !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 40px rgba(0, 32, 80, 0.28) !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+/* When collapsed (.widget-collapsed), hide the widget smoothly so the bubble takes over */
+chat-messenger.widget-collapsed {
+  opacity: 0 !important;
+  transform: translateY(24px) scale(0.9) !important;
+  pointer-events: none !important;
+}
+
+/* Tablet Responsive Sizing (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  chat-messenger.widget-expanded {
+    width: 360px !important;
+    max-height: 560px !important;
+    height: 75vh !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+}
+
+/* Mobile Responsive Sizing (<768px) */
+@media (max-width: 767px) {
+  chat-messenger.widget-expanded {
+    width: calc(100vw - 24px) !important;
+    max-height: 70vh !important;
+    height: 500px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+  .ai-launcher-bubble {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+  .bubble-tooltip {
+    display: none;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .nav-menu,
+  .utility-bar {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+  
+  .ai-banner-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 24px;
+  }
+}
