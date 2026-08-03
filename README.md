@@ -78,17 +78,18 @@ graph TD
 ## 📁 Repository Directory Structure
 
 ```text
-├── Dockerfile             # Production container definition for Google Cloud Run
-├── README.md              # System architecture & deployment guide
-├── deploy.sh              # Automated GCP deployment script (gcloud run deploy)
-├── package.json           # Node.js dependencies & scripts
-├── server.js              # Express HTTP server with secure CSP headers
+├── Dockerfile                             # Production container definition for Google Cloud Run
+├── README.md                              # System architecture & deployment guide
+├── deploy.sh                              # Automated GCP deployment script (gcloud run deploy)
+├── exported_app_Telistra AI Assistant.zip # Exported CX Agent Studio conversational agent package
+├── package.json                           # Node.js dependencies & scripts
+├── server.js                              # Express HTTP server with secure CSP headers
 └── public/
-    ├── index.html         # Main Telistra homepage & AI launcher bubble markup
+    ├── index.html                         # Main Telistra homepage & AI launcher bubble markup
     ├── css/
-    │   └── styles.css     # Telistra design system & expand/collapse animations
+    │   └── styles.css                     # Telistra design system & expand/collapse animations
     └── js/
-        └── app.js         # Interactive state machine & DOM event controllers
+        └── app.js                         # Interactive state machine & DOM event controllers
 ```
 
 ---
@@ -105,6 +106,31 @@ graph TD
    ```
 3. **Open in Browser**:
    Navigate to `http://localhost:8080`.
+
+---
+
+## 🤖 Importing & Restoring the Conversational AI Agent (`exported_app_Telistra AI Assistant.zip`)
+
+The repository includes a complete export of the **Telistra** conversational AI agent from **CX Agent Studio** ([exported_app_Telistra AI Assistant.zip](file:///usr/local/google/home/pangyun/Projects/Telistra-AI-Assistant/exported_app_Telistra%20AI%20Assistant.zip)). This archive contains all conversational flows, intents, entity types, generative prompt settings, and webhook configurations.
+
+### How to Import or Restore into CX Agent Studio
+
+1. **Locate the Exported Package**:
+   * Verify that [exported_app_Telistra AI Assistant.zip](file:///usr/local/google/home/pangyun/Projects/Telistra-AI-Assistant/exported_app_Telistra%20AI%20Assistant.zip) is present in the root directory of this repository.
+2. **Open CX Agent Studio Console**:
+   * Navigate to the [Google Cloud CX Agent Studio Console](https://dialogflow.cloud.google.com/cx/projects/gecx-485707/locations/us/agents) for project **`gecx-485707`** (Location: **`us`**).
+3. **Restore or Import into an Agent**:
+   * **To restore into an existing agent (overwrite existing flows)**:
+     1. Click the three dots menu (`⋮`) next to your agent in the agents list (or open the agent and navigate to **Agent Settings** -> **Export/Restore**).
+     2. Select **Restore**.
+     3. Choose **Upload file**, select `exported_app_Telistra AI Assistant.zip`, and click **Restore**. This replaces the agent's current configuration with the contents of the archive.
+   * **To import as a new agent**:
+     1. Click **Create Agent** -> **Build your own**.
+     2. Provide an agent name (e.g., `Telistra Assistant`) and select location `us`.
+     3. Once created, open **Agent Settings** -> **Export/Restore** -> **Restore** and upload `exported_app_Telistra AI Assistant.zip`.
+4. **Verify Web Component Connection**:
+   * After restoring the agent, open the **Deployments** or **Integrations** tab in CX Agent Studio to confirm that your deployment is active.
+   * Ensure the `deploymentName` attribute in [index.html](file:///usr/local/google/home/pangyun/Projects/Telistra-AI-Assistant/public/index.html#L325) matches your target project, location, app ID, and deployment ID.
 
 ---
 
