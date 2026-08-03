@@ -1,8 +1,12 @@
 # 🌐 Telistra AI Assistant — Next-Generation Customer Experience & Web Platform
 
-![Telistra Banner](https://www.gstatic.com/dialogflow-console/common/assets/ccai-favicons/conversational_agents.png)
-
 > **Telistra** is a dynamic, highly responsive enterprise web application and conversational AI portal inspired by Telstra's modern design language. Built with a responsive Vanilla CSS design system, modular JavaScript, and seamlessly integrated with **Google Cloud Gemini Enterprise for Customer Experience (CES)**.
+
+---
+
+## 📸 Application Interface & Interactive AI Bubble
+
+![Telistra AI Assistant Web Interface and Chat Messenger](./image.png)
 
 ---
 
@@ -72,7 +76,7 @@ graph TD
 ### 4. Cloud Run Serverless Architecture (`Dockerfile` & `deploy.sh`)
 * Encapsulated in a lightweight Node.js container image.
 * Built and deployed directly to **Google Cloud Run** in `us-central1` with automatic HTTPS SSL termination, zero-downtime revision scaling, and public invoker IAM bindings.
-
+![alt text](image.png)
 ---
 
 ## 📁 Repository Directory Structure
@@ -82,6 +86,7 @@ graph TD
 ├── README.md                              # System architecture & deployment guide
 ├── deploy.sh                              # Automated GCP deployment script (gcloud run deploy)
 ├── exported_app_Telistra AI Assistant.zip # Exported CX Agent Studio conversational agent package
+├── image.png                              # Interface screenshot & preview
 ├── package.json                           # Node.js dependencies & scripts
 ├── server.js                              # Express HTTP server with secure CSP headers
 └── public/
